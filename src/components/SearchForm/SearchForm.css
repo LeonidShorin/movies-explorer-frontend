@@ -1,0 +1,123 @@
+.search-form {
+  display: flex;
+  background-color: rgba(32, 32, 32, 1);
+}
+
+.section_type_search-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 70px 70px 80px;
+  background-color: rgba(32, 32, 32, 1);
+  border-radius: 9px;
+  justify-content: space-between;
+}
+
+.search-form__main {
+  display: flex;
+  justify-content: space-between;
+  border: 1.5px solid rgba(170, 170, 170, 1);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.search-form__input {
+  display: flex;
+  border: none;
+  font-size: 18px;
+  line-height: 1.11;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  width: 100%;
+  background-color: rgba(32, 32, 32, 1);
+}
+
+.search-form__input:focus {
+  background-image: none;
+  background-color: rgba(32, 32, 32, 1);
+  color: rgba(255, 255, 255, 1);
+  padding-left: 10px;
+  outline: none;
+}
+
+.search-form__input::placeholder {
+  color: rgba(160, 160, 160, 1);
+}
+
+.search-form__input::-ms-input-placeholder {
+  color: rgba(160, 160, 160, 1);
+}
+
+.search-form__input::-webkit-input-placeholder {
+  color: rgba(160, 160, 160, 1);
+}
+
+.search-form__input::-moz-placeholder {
+  color: rgba(160, 160, 160, 1);
+}
+
+.search-form__submit-button {
+  min-width: 100px;
+  height: 52px;
+  color: rgba(255, 255, 255, 1);
+  border: grey;
+  background-color: rgba(66, 133, 244, 1);
+  padding: 0;
+  border-radius: 3px;
+  transition: opacity .3s ease;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.search-form__submit-button:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.search-form__line {
+  border-left: 1px solid rgba(203, 203, 203, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .section_type_search-form {
+    margin: 75px 30px 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section_type_search-form {
+    flex-direction: column;
+    gap: 45px;
+    align-items: center;
+    padding: 0;
+    box-shadow: none;
+  }
+  .search-form__main {
+    border-radius: 9px;
+    padding: 19px;
+  }
+  .search-form__submit-button {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .section_type_search-form {
+    margin: 75px 30px 45px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .section_type_search-form {
+    margin: 75px 10px 45px;
+  }
+  .search-form__input {
+    font-size: 14px;
+    line-height: 1.42;
+    padding: 0;
+    background-image: none;
+  }
+}

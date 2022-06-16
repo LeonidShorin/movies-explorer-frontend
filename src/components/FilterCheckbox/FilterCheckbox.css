@@ -1,0 +1,55 @@
+.short-movies-filter {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.short-movies-filter__button {
+  width: 36px;
+  height: 20px;
+  background-image: url('../../images/filtercheckbox_inactive.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color:  rgba(32, 32, 32, 1);
+  padding: 0;
+  border: 0;
+  transition: opacity .3s ease;
+}
+
+.short-movies-filter__button_active {
+  background-image: url('../../images/filtercheckbox_active.svg');
+}
+
+.short-movies-filter__button:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.short-movies-filter__button-name {
+  font-size: 13px;
+  line-height: 1.4;
+  display: block;
+  color: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 769px) {
+  .short-movies-filter {
+    padding-left: 19px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .short-movies-filter {
+    background-color: rgba(32, 32, 32, 1);
+    padding: 0;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .short-movies-filter__button-name {
+    font-size: 11px;
+    line-height: 1.63;
+  }
+}
