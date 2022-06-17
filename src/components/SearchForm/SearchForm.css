@@ -97,10 +97,13 @@
   }
   .search-form__main {
     border-radius: 9px;
-    padding: 19px;
+    padding: 6px;
   }
   .search-form__submit-button {
     margin: 0;
+    min-width: 80px;
+    max-width: 80px;
+    max-height: 44px;
   }
 }
 
@@ -110,7 +113,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .section_type_search-form {
     margin: 75px 10px 45px;
   }

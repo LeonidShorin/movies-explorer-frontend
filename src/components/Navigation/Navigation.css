@@ -110,7 +110,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 373px) {
   .navigation__link-item {
     font-size: 10px;
     line-height: 1.23;

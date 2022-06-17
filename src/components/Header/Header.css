@@ -42,7 +42,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 389px) {
   .section_type_header {
     margin: 18px 14px;
   }

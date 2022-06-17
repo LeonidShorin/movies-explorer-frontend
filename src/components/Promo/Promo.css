@@ -1,7 +1,6 @@
 .promo {
   max-width: 1200px;
-  margin: auto;
-  margin-top: 38px;
+  margin: 38px 40px 0 40px;
   background-color: #272727;
   border-radius: 10px;
 }
@@ -58,7 +57,7 @@
   .promo {
     max-width: 728px;
     min-height: 834px;
-    margin-top: 20px;
+    margin: 20px 20px 0 20px;
   }
 
   .promo__heading {
@@ -66,6 +65,7 @@
     line-height: 52px;
     margin-top: 350px;
     margin-bottom: 314px;
+    max-width: 680px;
   }
   
 }
@@ -87,13 +87,17 @@
 
 @media screen and (max-width: 340px) {
   .promo {
-    margin-top: 14px;
+    margin: 14px 14px 0 14px;
     max-width: 292px;
   }
 
   .promo__navlink {
     font-size: 10px;
     line-height: 16px;
+  }
+
+  .promo__heading {
+    max-width: 292px;
   }
   
 }
