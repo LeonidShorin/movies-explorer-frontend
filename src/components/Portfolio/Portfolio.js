@@ -2,7 +2,7 @@ import './Portfolio.css';
 
 function Portfolio() {
   return (
-    < div className={'portfolio'}>
+    <div className={'portfolio'}>
       <h3 className={'portfolio__heading'}>Портфолио</h3>
       <nav className={'portfolio__links'}>
         <a className={'portfolio__link'} href={'https://github.com/LeonidShorin/how-to-learn'}

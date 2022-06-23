@@ -1,19 +1,26 @@
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import {movies} from '../../utils/utils';
+import {useLocation} from 'react-router-dom';
 
-function MoviesCardList({onLike, isLiked}) {
+function MoviesCardList({onLike, showedMovies, savedMovies, onDislike}) {
+  const location = useLocation();
 
-  return (
-    <ul className={'movies-card-list'}>
-      {movies.map((movie) => {
-        return <MoviesCard key={movie.id} imageLink={movie.imageLink}
-                           heading={movie.heading}
-                           duration={movie.duration}
-                           onLike={onLike} isLiked={isLiked}/>
-      })}
-    </ul>
-  )
+  if (showedMovies) {
+    return (
+      <ul className={'movies-card-list'}>
+        {showedMovies.map((movie) => {
+          return <MoviesCard key={location.pathname === '/movies' ? movie.id : movie.movieId}
+                             {...movie}
+                             onLike={onLike}
+                             onDislike={onDislike}
+                             savedMovies={savedMovies}/>
+        }
+    )
+  }
+      </ul>)
+  }
+  return null;
+
 }
 
 export default MoviesCardList;
