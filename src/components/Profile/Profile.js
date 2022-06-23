@@ -43,24 +43,30 @@ function Profile({onEditProfile, isEditProfile, onEditProfileClick, onLogOut}) {
 
   function Button() {
     if (isEditProfile) {
-      return (<button className={`profile-form__button
-        profile-form__button_type_submit ${(!validator.isValid || isSameProfile) && 'profile-form__button_type_submit_inactive'}`}
-                      disabled={!validator.isValid || isSameProfile}
-                      type={'submit'}>Сохранить</button>)
+      return (
+        <button className={`profile-form__button
+          profile-form__button_type_submit ${(!validator.isValid || isSameProfile) && 'profile-form__button_type_submit_inactive'}`}
+          disabled={!validator.isValid || isSameProfile}
+          type={'submit'}>
+            Сохранить
+        </button>)
     } else {
-      return (<>
-        <button className='profile-form__button profile-form__button_type_edit'
-                type={'button'}
-                onClick={onEditProfileClick}>Редактировать
-        </button>
+      return (
+        <>
+          <button className='profile-form__button profile-form__button_type_edit'
+                  type={'button'}
+                  onClick={onEditProfileClick}>Редактировать
+          </button>
           <Link className='profile-form__button profile-form__button_type_logout'
                 to={'/'}
                 onClick={onLogOut}>Выйти из аккаунта</Link>
-      </>)
+        </>
+      )
     }
   }
 
-  return (<div className='profile'>
+  return (
+    <div className='profile'>
       <div className='section section_type_profile'>
         <form className='profile-form'
               name='profile-form'

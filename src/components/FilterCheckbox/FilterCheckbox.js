@@ -11,10 +11,11 @@ function FilterCheckbox({isShortMovies, onToggle, disabled}) {
               aria-label={'Переключатель короткометражных фильмов'}>{}</button>)
   }
 
-  return (<div className={'short-movies-filter'}>
-      <FilterButton/>
-      <span className={'short-movies-filter__button-name'}>Короткометражки</span>
-    </div>)
+  return (
+  <div className={'short-movies-filter'}>
+    <FilterButton/>
+    <span className={'short-movies-filter__button-name'}>Короткометражки</span>
+  </div>)
 }
 
 export default FilterCheckbox;

@@ -17,7 +17,8 @@ function Login({onLogin}) {
     onLogin(validator.values)
   }
 
-  return (<div className='login'>
+  return (
+    <div className='login'>
       <div className='section section_type_login'>
         <AuthForm name={'login'}
                   heading={'Рады видеть!'}

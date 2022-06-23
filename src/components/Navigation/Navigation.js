@@ -46,25 +46,25 @@ function Navigation({isLoggedIn}) {
       <NavigationLinks/>
     </nav>)
   } else if (isLoggedIn && showNavBurgerButton) {
-    return (<nav className='navigation navigation_type_burger'>
-      <button className={'navigation__burger-button'}
-              type={'button'}
-              aria-label={'Кнопка навигации'}
-              onClick={handleOpenBurgerMenuButtonClick}>{}</button>
-      {showBurgerMenu ? <NavigationPopup showBurgerMenu={showBurgerMenu}
-                                         onClose={handleCloseBurgerMenuButtonClick}/> : null}
-    </nav>)
+    return (
+      <nav className='navigation navigation_type_burger'>
+        <button className={'navigation__burger-button'}
+                type={'button'}
+                aria-label={'Кнопка навигации'}
+                onClick={handleOpenBurgerMenuButtonClick}>{}</button>
+        {showBurgerMenu ? 
+        <NavigationPopup showBurgerMenu={showBurgerMenu} onClose={handleCloseBurgerMenuButtonClick}/> : null}
+      </nav>
+    )
   } else {
-    return (<nav className='navigation navigation_notLoggedIn'>
-      <Link className='navigation__link-item navigation__link-item_type_authorization'
-            to={'/signup'}>Регистрация</Link>
-      <Link className='navigation__link-item
-          navigation__link-item_type_authorization'
-            to={'/signin'}>
-        <button className='navigation__button'>Войти
-        </button>
-      </Link>
-    </nav>)
+    return (
+      <nav className='navigation navigation_notLoggedIn'>
+        <Link className='navigation__link-item navigation__link-item_type_authorization' to={'/signup'}>Регистрация</Link>
+        <Link className='navigation__link-item navigation__link-item_type_authorization' to={'/signin'}>
+          <button className='navigation__button'>Войти</button>
+        </Link>
+      </nav>
+    )
   }
 }
 

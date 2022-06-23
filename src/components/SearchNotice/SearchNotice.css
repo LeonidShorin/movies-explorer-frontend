@@ -1,7 +1,8 @@
-.search-notification {
+.search-notice {
   font-size: 13px;
   line-height: 1.2;
   width: 40%;
   margin: auto;
   text-align: center;
+  color: rgba(255, 255, 255, 1);;
 }

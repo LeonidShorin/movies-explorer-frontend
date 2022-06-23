@@ -18,13 +18,13 @@ import {
 } from '../../utils/utils';
 
 function Movies({
-                  onLike,
-                  savedMovies,
-                  isLoading,
-                  onSearchMovies,
-                  searchCount,
-                  errorMessage
-                }) {
+  onLike,
+  savedMovies,
+  isLoading,
+  onSearchMovies,
+  searchCount,
+  errorMessage
+}) {
   const searchedMoviesInLS = JSON.parse(localStorage.getItem('searchedMovies'));
   const isShortMoviesInLS = JSON.parse(localStorage.getItem('isShortMovies'));
   const [searchedMovies, setSearchedMovies] = useState(searchedMoviesInLS === null ? [] : searchedMoviesInLS);
@@ -120,46 +120,51 @@ function Movies({
 
 
   if (isLoading) {
-    return (<>
-      <SearchForm isShortMovies={isShortMovies}
-                  onSearchMovies={onSearchMovies}
-                  searchCount={searchCount}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'movies'}>
-        <Preloader movies={true}/>
-      </div>
-    </>)
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMovies}
+                    onSearchMovies={onSearchMovies}
+                    searchCount={searchCount}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'movies'}>
+          <Preloader movies={true}/>
+        </div>
+      </>
+    )
   } else if (errorMessage) {
-    return (<>
-      <SearchForm isShortMovies={isShortMovies}
-                  onSearchMovies={onSearchMovies}
-                  searchCount={searchCount}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'movies'}>
-        <SearchNotice content={errorMessage}/>
-      </div>
-    </>)
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMovies}
+                    onSearchMovies={onSearchMovies}
+                    searchCount={searchCount}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'movies'}>
+          <SearchNotice content={errorMessage}/>
+        </div>
+      </>)
   } else {
-    return (<>
-      <SearchForm isShortMovies={isShortMovies}
-                  onSearchMovies={onSearchMovies}
-                  searchCount={searchCount}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'movies'}>
-        {(searchedMoviesCount === 0 && searchCount !== 0) ?
-          <SearchNotice content={'Ничего не найдено'}/> :
-          <MoviesCardList onLike={onLike}
-                          showedMovies={showedMovies}
-                          savedMovies={savedMovies}/>}
-        {(showedMovies && searchedMoviesCount !== showedMovies.length) ?
-          <div className={'movies__more-films'}>
-            <button type={'button'}
-                    onClick={handleShowMoreMoviesClick}
-                    className={'movies__more-films-button'}>Еще
-            </button>
-          </div> : null}
-      </div>
-    </>)
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMovies}
+                    onSearchMovies={onSearchMovies}
+                    searchCount={searchCount}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'movies'}>
+          {(searchedMoviesCount === 0 && searchCount !== 0) ?
+            <SearchNotice content={'Ничего не найдено'}/> :
+            <MoviesCardList onLike={onLike}
+                            showedMovies={showedMovies}
+                            savedMovies={savedMovies}/>}
+          {(showedMovies && searchedMoviesCount !== showedMovies.length) ?
+            <div className={'movies__more-films'}>
+              <button type={'button'}
+                      onClick={handleShowMoreMoviesClick}
+                      className={'movies__more-films-button'}>Еще
+              </button>
+            </div> : null}
+        </div>
+      </>
+    )
   }
 }
 

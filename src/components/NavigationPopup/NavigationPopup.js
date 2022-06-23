@@ -24,8 +24,8 @@ function NavigationPopup({showBurgerMenu, onClose}) {
     }
   }, [onClose])
 
-  return (<div className={'navigation-popup'}
-               onClick={handleOverlayClose}>
+  return (
+    <div className={'navigation-popup'} onClick={handleOverlayClose}>
       <ul className={'navigation-popup__container'}>
         <button type={'button'}
                 aria-label={'Кнопка закрытия модального окна навигации'}

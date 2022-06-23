@@ -59,42 +59,48 @@ function SavedMovies({savedMovies, isLoading, onLike, onDislike}) {
   }
 
   if (isLoading) {
-    return (<>
-      <SearchForm isShortMovies={isShortMoviesInSM}
-                  disabled={!savedMovies.length}
-                  onSearchSavedMovies={handleSearchSavedMovies}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'saved-movies'}>
-        <Preloader movies={true}/>
-      </div>
-    </>)
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMoviesInSM}
+                    disabled={!savedMovies.length}
+                    onSearchSavedMovies={handleSearchSavedMovies}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'saved-movies'}>
+          <Preloader movies={true}/>
+        </div>
+      </>
+    )
   } else if (savedMoviesError) {
-    return (<>
-      <SearchForm isShortMovies={isShortMoviesInSM}
-                  disabled={!savedMovies.length}
-                  onSearchSavedMovies={handleSearchSavedMovies}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'saved-movies'}>
-        <SearchNotice content={savedMoviesError}/>
-        {(showedMovies.length === 0 && savedMoviesSearchCount !== 0 && savedMoviesError) ?
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMoviesInSM}
+                    disabled={!savedMovies.length}
+                    onSearchSavedMovies={handleSearchSavedMovies}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'saved-movies'}>
+          <SearchNotice content={savedMoviesError}/>
+          {(showedMovies.length === 0 && savedMoviesSearchCount !== 0 && savedMoviesError) ?
           <button type={'button'}
                   className={'saved-movies__return-button'}
                   onClick={handleSearchClear}>Вернуться</button> : null}
-      </div>
-    </>)
+        </div>
+      </>
+    )
   } else {
-    return (<>
-      <SearchForm isShortMovies={isShortMoviesInSM}
-                  onSearchSavedMovies={handleSearchSavedMovies}
-                  disabled={!savedMovies.length}
-                  onToggle={toggleShortMoviesFilter}/>
-      <div className={'saved-movies'}>
-        <MoviesCardList showedMovies={showedMovies}
-                        savedMovies={savedMovies}
-                        onLike={onLike}
-                        onDislike={onDislike}/>
-      </div>
-    </>)
+    return (
+      <>
+        <SearchForm isShortMovies={isShortMoviesInSM}
+                    onSearchSavedMovies={handleSearchSavedMovies}
+                    disabled={!savedMovies.length}
+                    onToggle={toggleShortMoviesFilter}/>
+        <div className={'saved-movies'}>
+          <MoviesCardList showedMovies={showedMovies}
+                          savedMovies={savedMovies}
+                          onLike={onLike}
+                          onDislike={onDislike}/>
+        </div>
+      </>
+    )
   }
 }
 
