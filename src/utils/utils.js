@@ -1,89 +1,40 @@
-import image1 from '../images/movies_card1.jpg';
-import image2 from '../images/movies_card2.jpg';
-import image3 from '../images/movies_card3.jpg';
-import image4 from '../images/movies_card4.jpg';
-import image5 from '../images/movies_card5.jpg';
-import image6 from '../images/movies_card6.jpg';
-import image7 from '../images/movies_card7.jpg';
-import image8 from '../images/movies_card8.jpg';
-import image9 from '../images/movies_card9.jpg';
-import image10 from '../images/movies_card10.jpg';
-import image11 from '../images/movies_card11.jpg';
-import image12 from '../images/movies_card12.jpg';
+export const MOVIE_IMAGE_BASE_URL = 'https://api.nomoreparties.co';
+export const MOVIES_BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
+export const BASE_URL = 'https://api.movexplorerbyleonid.nomoredomains.work';
+export const MINUTES_IN_HOUR = 60;
+export const SHORT_MOVIE_DURATION = 40;
+export const BIG_SCREEN_MOVIES_QTY = 12;
+export const MIDDLE_SCREEN_MOVIES_QTY = 8;
+export const SMALL_SCREEN_MOVIES_QTY = 5;
+export const MORE_MOVIES_BIG_SCREEN_QTY = 3;
+export const MORE_MOVIES_SMALL_SCREEN_QTY = 2;
+export const BIG_SCREEN = 768;
+export const SMALL_SCREEN = 480;
 
-export const movies = [
-  {
-  id: 1,
-  imageLink: image1,
-  heading: '33 слова о дизайне',
-  duration: '1ч 44м'
-},
-  {
-    id: 2,
-    imageLink: image2,
-    heading: 'Киноальманах «100 лет дизайна»',
-    duration: '1ч 3м'
-  },
-  {
-    id: 3,
-    imageLink: image3,
-    heading: 'В погоне за Бенкси',
-    duration: '1ч 42м'
-  },
-  {
-    id: 4,
-    imageLink: image4,
-    heading: 'Баския: Взрыв реальности',
-    duration: '1ч 21м'
-  },
-  {
-    id: 5,
-    imageLink: image5,
-    heading: 'Бег это свобода',
-    duration: '1ч 44м'
-  },
-  {
-    id: 6,
-    imageLink: image6,
-    heading: 'Книготорговцы',
-    duration: '1ч 37м'
-  },
-  {
-    id: 7,
-    imageLink: image7,
-    heading: 'Когда я думаю о Германии ночью',
-    duration: '1ч 56м'
-  },
-  {
-    id: 8,
-    imageLink: image8,
-    heading: 'Gimme Danger: История Игги и The Stooge...',
-    duration: '1ч 59м'
-  },
-  {
-    id: 9,
-    imageLink: image9,
-    heading: 'Дженис: Маленькая девочка грустит',
-    duration: '1ч 42м'
-  },
-  {
-  id: 10,
-  imageLink: image10,
-  heading: 'Соберись перед прыжком',
-  duration: '1ч 10м'
-},
-  {
-    id: 11,
-    imageLink: image11,
-    heading: 'Пи Джей Харви: A dog called money',
-    duration: '1ч 4м'
-  },
-  {
-    id: 12,
-    imageLink: image12,
-    heading: 'По волнам: Искусство звука в кино',
-    duration: '1ч 7м'
-  },
+export function searchMovies(movies, isShortMovies, searchInput) {
+  let searchedMovies;
+  if (!movies) {
+    return null
+  } else if (isShortMovies) {
+    searchedMovies = movies.filter((movie) => {
+      return (movie.nameRU.toLowerCase().includes(searchInput.toLowerCase().trim()) || movie.description.toLowerCase().includes(searchInput.toLowerCase().trim())) && movie.duration <= SHORT_MOVIE_DURATION;
+    })
+  } else {
+    searchedMovies = movies.filter((movie) => {
+      return (movie.nameRU.toLowerCase().includes(searchInput.toLowerCase().trim()) || movie.description.toLowerCase().includes(searchInput.toLowerCase().trim()))
+    })
+  }
+  return searchedMovies;
+}
 
+export function saveToLocalStorage(searchedMovies, isShortMovies, searchInput) {
+  localStorage.setItem('searchInput', searchInput);
+  localStorage.setItem('isShortMovies', JSON.stringify(isShortMovies));
+  localStorage.setItem('searchedMovies', JSON.stringify(searchedMovies));
+}
 
-]
+export function showShortMovies(showedMovies) {
+  return showedMovies.filter((movie) => {
+    return movie.duration <= SHORT_MOVIE_DURATION;
+  })
+}

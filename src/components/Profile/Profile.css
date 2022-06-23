@@ -130,6 +130,19 @@
   color: rgba(194, 194, 194, 1);
 }
 
+.profile-form__button_type_logout {
+  background-color: rgba(32,32,32, 1);
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.profile-form__button_type_logout:hover {
+  color: rgba(255, 255, 255, .7);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 769px) {
   .section_type_profile {
     margin: 155px 70px 0;
